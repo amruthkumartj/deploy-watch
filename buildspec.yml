@@ -29,10 +29,10 @@ phases:
 
   post_build:
     commands:
-      - 'echo Build completed on $(date)'
+      - "echo Build completed on $(date)"
       - echo Pushing the Docker image to ECR...
-      - 'docker push $REPOSITORY_URI:latest'
-      - 'docker push $REPOSITORY_URI:$IMAGE_TAG'
+      - "docker push $REPOSITORY_URI:latest"
+      - "docker push $REPOSITORY_URI:$IMAGE_TAG"
       - 'echo "Image pushed successfully: $REPOSITORY_URI:$IMAGE_TAG"'
       - 'echo "[{\"name\":\"deploy-watch\",\"imageUri\":\"$REPOSITORY_URI:$IMAGE_TAG\"}]" > imagedefinitions.json'
 
