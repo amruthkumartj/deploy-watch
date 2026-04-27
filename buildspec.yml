@@ -38,7 +38,7 @@ phases:
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Image pushed successfully to $REPOSITORY_URI:$IMAGE_TAG
       - echo Creating imagedefinitions.json with image $REPOSITORY_URI:$IMAGE_TAG
-      - jq -n --arg uri "$REPOSITORY_URI:$IMAGE_TAG" '[{name:"deploy-watch",imageUri:$uri}]' > imagedefinitions.json
+      - jq -n --arg uri "$REPOSITORY_URI:$IMAGE_TAG" '[{"name":"deploy-watch","imageUri":$uri}]' > imagedefinitions.json
       - cat imagedefinitions.json
 
 artifacts:
