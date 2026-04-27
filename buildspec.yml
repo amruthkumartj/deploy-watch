@@ -36,7 +36,10 @@ phases:
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Image pushed successfully to $REPOSITORY_URI:$IMAGE_TAG
       - echo Creating imagedefinitions.json with image $REPOSITORY_URI:$IMAGE_TAG
-      - printf '[{"name":"deploy-watch","imageUri":"%s"}]\n' "$REPOSITORY_URI:$IMAGE_TAG" > imagedefinitions.json
+      - |
+        cat > imagedefinitions.json <<EOF
+        [{"name":"deploy-watch","imageUri":"$REPOSITORY_URI:$IMAGE_TAG"}]
+        EOF
       - cat imagedefinitions.json
 
 artifacts:
