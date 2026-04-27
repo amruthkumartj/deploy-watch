@@ -1,5 +1,5 @@
-# Use official Node.js runtime as a lightweight base image
-FROM node:20-alpine
+# Use Node.js runtime from Amazon's public ECR (no Docker Hub rate limit)
+FROM public.ecr.aws/docker/library/node:20-alpine
 
 # ECS container health checks commonly use curl in CMD-SHELL checks.
 RUN apk add --no-cache curl
