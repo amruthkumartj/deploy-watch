@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 
 # Copy package manifests and install dependencies first for better caching
 COPY package*.json ./
-RUN npm install --production
+RUN npm install --production --quiet
 
 # Copy app source
 COPY . .
